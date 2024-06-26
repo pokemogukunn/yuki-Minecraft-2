@@ -208,6 +208,82 @@
 
 
 </div></body></html>
+<html lang="ja">
+
+<head>
+</head>
+<h1>電卓</h1>
+<p>最近少し退屈だったので作ってみました。<br>時間があれば何かしらの機能を追加する予定です</p>
+<br>
+<div id="gennumber">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  input {
+              width: 50%;
+              margin-bottom: 10px;
+          }
+          button {
+              width: 10%;
+              padding: 14px;
+              margin: 5px;
+              font-size: 20px;
+          }
+          #calculatorFrom {
+              width: 200px; 
+              font-size: 20px; 
+              margin-bottom: 10px; 
+          }
+  </style>
+  <form name="calculator" onsubmit="calculate(); return false;">
+    <input type="text" id="calculatorForm" placeholder="式を入力してください" readonly>
+    <br>
+    <button type="button" onclick="clearInput();">C</button>
+    <button type="button" onclick="backspace();">⌫</button>
+    <button type="button" onclick="addToInput('%');">%</button>
+    <button type="button" onclick="addToInput('+');">+</button>
+    <br>
+    <button type="button" onclick="addToInput('1');">1</button>
+    <button type="button" onclick="addToInput('2');">2</button>
+    <button type="button" onclick="addToInput('3');">3</button>
+    <button type="button" onclick="addToInput('-');">-</button>
+    <br>
+    <button type="button" onclick="addToInput('4');">4</button>
+    <button type="button" onclick="addToInput('5');">5</button>
+    <button type="button" onclick="addToInput('6');">6</button>
+    <button type="button" onclick="addToInput('*');">×</button>
+    <br>
+    <button type="button" onclick="addToInput('7');">7</button>
+    <button type="button" onclick="addToInput('8');">8</button>
+    <button type="button" onclick="addToInput('9');">9</button>
+    <button type="button" onclick="addToInput('/');">÷</button>
+    <br>
+    <button type="button" onclick="addToInput('e');">e</button>
+    <button type="button" onclick="addToInput('0');">0</button>
+    <button type="button" onclick="addToInput('.');">.</button>
+    <button type="submit">=</button>
+    <br>
+    <button type="button" onclick="addToInput('(');">&#40;</button>
+    <button type="button" onclick="addToInput(')');">&#41;</button>
+    <button type="button" onclick="addToInput('π');">π</button>
+    <button type="button" onclick="calculateSquareRoot();">√</button>
+  </form>
+</div>
+<border><b>&copy; 2023 Ⓨ</b></border>
+ <script>
+    window.onload = function() {
+        var password = prompt("8閲覧パスワード5を1入力7してください5:");
+        if (password === "85175") {
+            content.style.display = "block";
+        } else {
+            alert("パスワードが間違っています");
+            content.style.display = "none";
+        }
+    };
+</script>
+</html>
+
+		
 		<h1>これがおかしいと思ったら確認してください。</h1>
 <script>function getlevel(){
         if(document.getElementById('word').value == "85175"){document.cookie = "yuki=True; path=/;";}else{
