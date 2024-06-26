@@ -215,12 +215,7 @@
     <div id="info">
 </body>
 </html>
-<html>
-<head>
- <meta charset="utf-8">
-</head>
-<body>
-    <style>
+<style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -235,7 +230,9 @@
             font-size: 1.5em;
         }
     </style>
-    <h1>n進数変換</h1>
+</head>
+<body>
+    <h1>n進数変換サイト</h1>
     <form id="conversionForm">
         <label for="number">数値を入力:</label>
         <input type="number" id="number" required>
@@ -251,7 +248,7 @@
         // 基数の選択肢を生成する関数
         function populateBaseOptions() {
             const baseSelect = document.getElementById('base');
-            for (let i = 2; i <= 36; i++) {
+            for (let i = 2; i <= 100; i++) {
                 const option = document.createElement('option');
                 option.value = i;
                 option.text = i;
@@ -266,8 +263,8 @@
             const base = document.getElementById('base').value;
             const resultDiv = document.getElementById('result');
 
-            if (base < 2 || base > 36) {
-                resultDiv.textContent = '基数は2から36の間で指定してください。';
+            if (base < 2 || base > 100) {
+                resultDiv.textContent = '基数は2から100の間で指定してください。';
                 return;
             }
 
