@@ -220,11 +220,64 @@
  <meta charset="utf-8">
 </head>
 <body>
-    <h2>n進数変換</h2>
-  <label for="numberInput">10進数:</label>
-  <input type="number" id="numberInput">
-  <button onclick="convert()">変換</button>
-  <p id="result"></p>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, button, select {
+            font-size: 1.2em;
+            margin: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+    </style>
+    <h1>n進数変換</h1>
+    <form id="conversionForm">
+        <label for="number">数値を入力:</label>
+        <input type="number" id="number" required>
+        <label for="base">基数を選択:</label>
+        <select id="base" required>
+            <!-- 基数の選択肢を動的に生成 -->
+        </select>
+        <button type="submit">変換</button>
+    </form>
+    <div class="result" id="result"></div>
+
+    <script>
+        // 基数の選択肢を生成する関数
+        function populateBaseOptions() {
+            const baseSelect = document.getElementById('base');
+            for (let i = 2; i <= 36; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.text = i;
+                baseSelect.appendChild(option);
+            }
+        }
+
+        document.getElementById('conversionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const number = document.getElementById('number').value;
+            const base = document.getElementById('base').value;
+            const resultDiv = document.getElementById('result');
+
+            if (base < 2 || base > 36) {
+                resultDiv.textContent = '基数は2から36の間で指定してください。';
+                return;
+            }
+
+            const convertedNumber = parseInt(number).toString(base);
+            resultDiv.textContent = `${number}を${base}進数に変換すると: ${convertedNumber}`;
+        });
+
+        // ページ読み込み時に基数の選択肢を生成
+        window.onload = populateBaseOptions;
+    </script>
     <p>
     現在、作成中なので、まだ正常に作動していないのは許してください。
     </p>
