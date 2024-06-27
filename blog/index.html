@@ -188,30 +188,13 @@
 
 <hea>
     <meta charset='utf-8'>
-    <script>function getlevel(){
-        if(document.getElementById('excel').value == "4649"){document.cookie = "yuki=True; path=/;";}else{
-        let req = new XMLHttpRequest();
-        req.addEventListener("load", function(){document.getElementById('info').textContent = this.responseText});
-        req.open("GET", "/answer?q="+document.getElementById('excel').value);
-        req.send();}
-    }</script>
 </hea>
-    よろしく<br>
-    「よろしく」を数字で表すと?<br>
- ものは試しに打ってみよう<br>
     <input id="excel" type="text"></input><input type="button" onClick="getlevel()">準備ok?</input>
     <div id="info">
 </body>
 </html>
 <head>
     <meta charset='utf-8'>
- <script>function getlevel(){
- 
-        let req = new XMLHttpRequest();
-        req.addEventListener("load", function(){document.getElementById('info').textContent = this.responseText});
-        req.open("GET", "/answer?q="+document.getElementById('excel').value);
-        req.send();}
-    }</script>
 </head>
 
 入力してください<br>
@@ -290,10 +273,11 @@
     </p><br>
 <p>37進数からバグってしまいます。<br>ごめんなさい。</p>
   <h2>四則計算</h2>
-  <label for="operand1">一つ目の値</label>
+  <label for="operand1">一つ目の値</label>//テキストボックス
   <input type="text" id="operand1">
   <label for="operator">ここで四則を選択</label>
   <select id="operator">
+	  //ここからボタン
     <option value="+">+</option>
     <option value="-">-</option>
     <option value="*">×</option>
@@ -304,7 +288,7 @@
   <button onclick="calculate()">計算</button>
   <p id="calcResult"></p>
 　<p>
-　四則計算の方は、使えるように改良しました。
+　四則計算の方も、使えるように改良しました。
   +は足し算、-は引き算、×は掛け算、÷は割り算です。
  </p>
 
@@ -316,7 +300,6 @@
     <style>
         body {
             text-align: center;
-            background-color: #f2f2f2;
             font-family: Arial, sans-serif;
         }
 
@@ -349,15 +332,10 @@
             height: 60px; /* ボタンの高さを変更 */
             font-size: 24px;
             margin: 5px;
-            background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
         }
     </style>
 </head>
