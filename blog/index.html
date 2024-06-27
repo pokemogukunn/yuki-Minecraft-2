@@ -232,8 +232,8 @@
     </style>
 </head>
 <body>
-    <h1>n進数変換サイト</h1>
-    <form id="conversionForm">
+    <h1>n進数変換</h1>
+     <form id="conversionForm">
         <label for="number">数値を入力:</label>
         <input type="number" id="number" required>
         <label for="base">基数を選択:</label>
@@ -247,6 +247,7 @@
     <script>
         // 基数の選択肢を生成する関数
         function populateBaseOptions() {
+            console.log('populateBaseOptions function called');
             const baseSelect = document.getElementById('base');
             for (let i = 2; i <= 100; i++) {
                 const option = document.createElement('option');
@@ -254,7 +255,11 @@
                 option.text = i;
                 baseSelect.appendChild(option);
             }
+            console.log('Base options populated');
         }
+
+        // ページ読み込み時に基数の選択肢を生成
+        window.addEventListener('DOMContentLoaded', populateBaseOptions);
 
         document.getElementById('conversionForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -271,9 +276,6 @@
             const convertedNumber = parseInt(number).toString(base);
             resultDiv.textContent = `${number}を${base}進数に変換すると: ${convertedNumber}`;
         });
-
-        // ページ読み込み時に基数の選択肢を生成
-        window.onload = populateBaseOptions;
     </script>
     <p>
     現在、作成中なので、まだ正常に作動していないのは許してください。
@@ -288,7 +290,7 @@
     <option value="-">-</option>
     <option value="*">×</option>
     <option value="/">÷</option>
-  </select>
+   </select>
   <label for="operand2">二つ目の値</label>
   <input type="text" id="operand2">
   <button onclick="calculate()">計算</button>
