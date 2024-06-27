@@ -233,7 +233,7 @@
 </head>
 <body>
     <h1>n進数変換</h1>
-     <form id="conversionForm">
+    <form id="conversionForm">
         <label for="number">数値を入力:</label>
         <input type="number" id="number" required>
         <label for="base">基数を選択:</label>
@@ -268,12 +268,15 @@
             const base = document.getElementById('base').value;
             const resultDiv = document.getElementById('result');
 
+            console.log(`Number: ${number}, Base: ${base}`);
+
             if (base < 2 || base > 100) {
                 resultDiv.textContent = '基数は2から100の間で指定してください。';
                 return;
             }
 
-            const convertedNumber = parseInt(number).toString(base);
+            const convertedNumber = parseInt(number, 10).toString(base);
+            console.log(`Converted Number: ${convertedNumber}`);
             resultDiv.textContent = `${number}を${base}進数に変換すると: ${convertedNumber}`;
         });
     </script>
@@ -299,13 +302,6 @@
 　四則計算の方は、使えるように改良しました。
   +は足し算、-は引き算、×は掛け算、÷は割り算です。
  </p>
- 
-  <p>
-    本当はn進数の方も動くようにしたかったが、<br>
-    あまりプログラムには詳しくないので、形だけで許してください。<br>
-    そのうち本当に使えるようにします。
-    </p>
-
 
 </div>
 </body>
